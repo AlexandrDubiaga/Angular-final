@@ -22,14 +22,29 @@
                 <a ui-sref="products">Products</a>  
                 <ui-view></ui-view>
         </div>
-        <div>
-               
-              
+        <div>    
         </div>
         <div>
             <icon-basket>
             </icon-basket>
         </div>
-        
+        <div ng-init = "text = 'Hosting max'">
+            {{text}}
+        </div>
+                <input ng-model="searchList" type="text" name="name">                    
+            </div>
+            <div>
+                <ul>
+                    <li ng-repeat="li in names | filter:searchList">{{li}}</li>
+                </ul>     
+        </div>
+        <input type="text" ng-model="fname">
+        <div ng-controller="nameController as settings">
+            <input type="button" ng-click = "settings.addName(fname)" value="go">   
+             <ul>
+                <li ng-repeat  ="li in settings.names track by $index"  >{{li}}</li>     
+            </ul>
+        </div>
+       
     </body>
 </html>
